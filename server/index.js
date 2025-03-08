@@ -11,9 +11,21 @@ const connections = {}
 const users = {}
 
 
+const broadcast = () =>{
+    Object.keys(connections).forEach(uuid => {
+        const connection = connections[uuid];
+        const message = JSON.stringify(users);
+        connection.send(message);
+    })
+}
 const HandleMessage=(bytes ,uuid)=> {
     const message = JSON.parse(bytes.toString())
+    const user = users(uuid);
+    user.state = message;
+    broadcast();
     console.log(message);
+
+
 }
 
 const HandleClose =(uuid)=>{
