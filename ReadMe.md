@@ -7,13 +7,13 @@ This project is a WebSocket-based implementation where the cursor location is sh
 
 ###### Client (React)
 
-React - Frontend framework
-react-use-websocket - Implementation of WebSocket with React
-cursor-pointer - Ensures proper display of the cursor pointer
-lodash.throttle - Creates a smooth cursor effect by throttling updates
+- React - Frontend framework
+- react-use-websocket - Implementation of WebSocket with React
+- cursor-pointer - Ensures proper display of the cursor pointer
+- lodash.throttle - Creates a smooth cursor effect by throttling updates
 
 ###### Server (Node.js)
-ws - WebSocket implementation in Node.js
+- ws - WebSocket implementation in Node.js
 
 
 ## Run Code 
