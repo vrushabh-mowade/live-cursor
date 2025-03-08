@@ -20,16 +20,22 @@ const broadcast = () =>{
 }
 const HandleMessage=(bytes ,uuid)=> {
     const message = JSON.parse(bytes.toString())
-    const user = users(uuid);
+    const user = users[uuid]
     user.state = message;
     broadcast();
     console.log(message);
+
+    console.log(`${user.username} updated their postion to  ${JSON.stringify(user.state)}`)
 
 
 }
 
 const HandleClose =(uuid)=>{
+    console.log(`${users[uuid].username} disconnected`);
+    delete connections[uuid]
+    delete users[uuid]
 
+    broadcast()
 }
 
 WebSocket.on("connection" ,(connection ,request)=>{
@@ -46,7 +52,6 @@ WebSocket.on("connection" ,(connection ,request)=>{
     users[uuid] = {
         username ,
         state :{
-            
         }
     }
 
